@@ -3,9 +3,13 @@ Library    SeleniumLibrary
 Suite Setup      Open Browser To Login Page
 Suite Teardown   Close Browser 
 
+*** Variables ***
+${URL}           https://computing.kku.ac.th
+${EXPECTED_TITLE}    College of Computing, Khon Kaen University
+
 *** Test Cases ***
 Open Website Should Work
-    SeleniumLibrary.Title Should Be    College of Computing, Khon Kaen University
+    SeleniumLibrary.Title Should Be    ${EXPECTED_TITLE}
 
 *** Keywords ***
 Open Browser To Login Page
@@ -15,4 +19,4 @@ Open Browser To Login Page
     Call Method    ${chrome_options}    add_argument    --headless
     
     Create Webdriver    Edge    options=${chrome_options}
-    Go To    https://computing.kku.ac.th
+    Go To    ${URL}
