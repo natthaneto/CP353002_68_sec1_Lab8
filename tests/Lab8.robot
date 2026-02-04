@@ -1,5 +1,11 @@
 *** Settings ***
 Library    SeleniumLibrary
+Suite Setup      Open Browser To Login Page
+Suite Teardown   Close Browser 
+
+*** Test Cases ***
+Open Website Should Work
+    SeleniumLibrary.Title Should Be    College of Computing, Khon Kaen University
 
 *** Keywords ***
 Open Browser To Login Page
